@@ -157,15 +157,18 @@ with tab2:
     col3.metric("Fraud Rate", "12.3%")
 
     fig1 = px.bar(data, x="Category", y="Transactions", title="Category-wise Transactions")
+    fig1.update_layout(template="plotly_dark")
     st.plotly_chart(fig1, use_container_width=True)
-
+    
     fig2 = px.pie(data, names="Category", values="Fraud_Count", title="Fraud by Category")
+    fig2.update_layout(template="plotly_dark")
     st.plotly_chart(fig2, use_container_width=True)
-
+    
     hour_data = pd.DataFrame({
         "Hour": list(range(24)),
         "Fraud_Count": [2,3,5,6,4,3,1,1,2,3,4,5,4,3,2,3,4,5,7,9,12,15,18,20]
     })
 
     fig3 = px.line(hour_data, x="Hour", y="Fraud_Count", title="Fraud Trend by Hour")
+    fig3.update_layout(template="plotly_dark")
     st.plotly_chart(fig3, use_container_width=True)
